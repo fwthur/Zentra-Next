@@ -1,13 +1,13 @@
 
 .footer {
   width: 100%;
-  padding: 40px 24px;
+  padding: 35px 24px;
   background: rgba(10, 10, 26, 0.5);
   border-top: 1px solid var(--border-color);
 }
 
 .footer-content {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -17,9 +17,14 @@
 }
 
 .footer-logo {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo-icon {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
 }
 
 .footer-copyright {
@@ -28,8 +33,16 @@
 }
 
 @media (max-width: 768px) {
+  .footer {
+    padding: 16px 16px;
+  }
+
   .footer-content {
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
+  }
+
+  .footer-logo-icon {
+    height: 28px;
   }
 }
