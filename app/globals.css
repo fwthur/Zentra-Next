@@ -1,26 +1,58 @@
-@import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #8a2be2; /* Violet */
+  --color-secondary: #4169e1; /* Royal Blue */
+  --color-accent: #c0c0c0; /* Silver */
+  --color-text: #e0e0e0;
+  --color-text-muted: #a0a0b0;
+  --bg-dark: #0a0a1a;
+  --bg-glass: rgba(20, 20, 40, 0.4);
+  --glass-blur: 10px;
+  --border-color: rgba(192, 192, 192, 0.2);
+  --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--color-text);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -20vh;
+  left: -20vw;
+  width: 140vw;
+  height: 140vh;
+  background-image:
+    radial-gradient(circle at 10% 20%, var(--color-primary), transparent 30%),
+    radial-gradient(circle at 90% 80%, var(--color-secondary), transparent 30%);
+  background-repeat: no-repeat;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.section-observer {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section-observer.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
