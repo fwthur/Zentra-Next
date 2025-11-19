@@ -1,0 +1,30 @@
+.toggleButton {
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--color-text);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.toggleButton:hover {
+  background-color: var(--bg-glass);
+}
+
+.toggleButton:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .toggleButton {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+}

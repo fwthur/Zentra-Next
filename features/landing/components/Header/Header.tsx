@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Button from "@/components/Button/Button";
 import styles from "./Header.module.css";
+import ThemeToggleButton from "@/components/ThemeToggleButton/ThemeToggleButton";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,9 +17,12 @@ export default function Header() {
         <a href="#" className={styles["header-logo"]}>
           <img src="/zentra-icon-color.svg" alt="Zentra" className={styles["header-logo-icon"]} />
         </a>
-        <Button as="a" href="https://app.zentra.pw/" target="_blank" rel="noopener noreferrer">
-          Join Beta
-        </Button>
+        <div className={styles["header-actions"]}>
+          <ThemeToggleButton />
+          <Button as="a" href="https://app.zentra.pw/" target="_blank" rel="noopener noreferrer">
+            Join Beta
+          </Button>
+        </div>
       </div>
     </header>
   );

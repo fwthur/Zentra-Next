@@ -3,13 +3,41 @@
   --color-primary: #8a2be2; /* Violet */
   --color-secondary: #4169e1; /* Royal Blue */
   --color-accent: #c0c0c0; /* Silver */
-  --color-text: #e0e0e0;
-  --color-text-muted: #a0a0b0;
-  --bg-dark: #0a0a1a;
-  --bg-glass: rgba(20, 20, 40, 0.4);
-  --glass-blur: 10px;
-  --border-color: rgba(192, 192, 192, 0.2);
   --shadow-color: rgba(0, 0, 0, 0.2);
+
+  /* Dark Theme */
+  --color-text-dark: #e0e0e0;
+  --color-text-muted-dark: #a0a0b0;
+  --bg-dark: #0a0a1a;
+  --bg-glass-dark: rgba(20, 20, 40, 0.4);
+  --border-color-dark: rgba(192, 192, 192, 0.2);
+  --gradient-opacity-dark: 0.3;
+
+  /* Light Theme */
+  --color-text-light: #1a1a2e;
+  --color-text-muted-light: #5a5a7a;
+  --bg-light: #f0f0f8;
+  --bg-glass-light: rgba(255, 255, 255, 0.6);
+  --border-color-light: rgba(26, 26, 46, 0.1);
+  --gradient-opacity-light: 0.5;
+}
+
+[data-theme='dark'] {
+  --color-text: var(--color-text-dark);
+  --color-text-muted: var(--color-text-muted-dark);
+  --bg-main: var(--bg-dark);
+  --bg-glass: var(--bg-glass-dark);
+  --border-color: var(--border-color-dark);
+  --gradient-opacity: var(--gradient-opacity-dark);
+}
+
+[data-theme='light'] {
+  --color-text: var(--color-text-light);
+  --color-text-muted: var(--color-text-muted-light);
+  --bg-main: var(--bg-light);
+  --bg-glass: var(--bg-glass-light);
+  --border-color: var(--border-color-light);
+  --gradient-opacity: var(--gradient-opacity-light);
 }
 
 * {
@@ -21,13 +49,14 @@ html {
 }
 
 body {
-  background-color: var(--bg-dark);
+  background-color: var(--bg-main);
   color: var(--color-text);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body::before {
@@ -43,7 +72,8 @@ body::before {
   background-repeat: no-repeat;
   filter: blur(100px);
   z-index: -1;
-  opacity: 0.3;
+  opacity: var(--gradient-opacity);
+  transition: opacity 0.3s ease;
 }
 
 .section-observer {

@@ -27,11 +27,10 @@
   font-weight: 800;
   margin: 0;
   letter-spacing: -2px;
-  background: linear-gradient(90deg, #ffffff, var(--color-accent));
+  background: linear-gradient(90deg, var(--color-text), var(--color-text-muted));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
 }
 
 .hero-section p {
@@ -68,7 +67,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, transparent, var(--bg-dark) 90%);
+    background: linear-gradient(to bottom, transparent, var(--bg-main) 90%);
     z-index: 2;
 }
 
@@ -81,7 +80,8 @@
 .bg-col-1 { flex: 0 0 200px; }
 
 .bg-card {
-    background: rgba(255,255,255,0.05);
+    background: var(--bg-glass);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
 }
 
